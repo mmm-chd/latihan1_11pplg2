@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MyTextField extends StatelessWidget {
+  final bool isNumber;
   final String label;
   final double? marginTop;
   final TextEditingController controller;
@@ -15,6 +17,7 @@ class MyTextField extends StatelessWidget {
     this.marginTop,
     this.onTap,
     this.readOnly,
+    required this.isNumber,
   });
 
   @override
@@ -22,6 +25,9 @@ class MyTextField extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: marginTop ?? 0.0),
       child: TextFormField(
+        keyboardType: isNumber ? TextInputType.number : TextInputType.text,
+        inputFormatters:
+            isNumber ? [FilteringTextInputFormatter.digitsOnly] : [],
         controller: controller,
         decoration: InputDecoration(
           labelText: label,

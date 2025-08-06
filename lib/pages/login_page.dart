@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:latihan1_11plg2/components/button_component.dart';
 import 'package:latihan1_11plg2/components/image_file_component.dart';
 import 'package:latihan1_11plg2/components/rich_text_lgn_component.dart';
+import 'package:latihan1_11plg2/components/text_component.dart';
 import 'package:latihan1_11plg2/components/text_field_component.dart';
 
 class LoginPage extends StatefulWidget {
@@ -27,16 +28,16 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Welcome Back!!',
+            MyText(
+              text: 'Welcome Back!!',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF1976D2), // Light Blue color
               ),
             ),
-            Text(
-              'Please fill username and password below',
+            MyText(
+              text: 'Please fill username and password below',
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
             Center(
@@ -47,11 +48,13 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             MyTextField(
+              isNumber: false,
               label: 'Username',
               controller: txtUsername,
               marginTop: 54.0,
             ),
             MyTextField(
+              isNumber: false,
               label: 'Password',
               controller: txtPassword,
               marginTop: 16.0,
@@ -83,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
             Center(
               child: Container(
                 margin: EdgeInsets.only(top: 50.0),
-                child: Text(statusLogin),
+                child: MyText(text: statusLogin),
               ),
             ),
             MyRichText(

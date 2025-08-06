@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:latihan1_11plg2/components/button_component.dart';
 import 'package:latihan1_11plg2/components/image_file_component.dart';
 import 'package:latihan1_11plg2/components/rich_text_lgn_component.dart';
+import 'package:latihan1_11plg2/components/text_component.dart';
 import 'package:latihan1_11plg2/components/text_field_component.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -13,7 +14,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  int selectedRadio = 0; // Default value for radio button
+  int selectedRadio = 0;
   String formattedDate = '';
 
   TextEditingController txtUsername = TextEditingController();
@@ -37,16 +38,16 @@ class _RegisterPageState extends State<RegisterPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Let\'s Get Started!',
+              MyText(
+                text: 'Let\'s Get Started!',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF1976D2), // Light Blue color
                 ),
               ),
-              Text(
-                'Please fill in your details below',
+              MyText(
+                text: 'Please fill in your details below',
                 style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
               Center(
@@ -57,6 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
               MyTextField(
+                isNumber: false,
                 label: 'Username',
                 controller: txtUsername,
                 marginTop: 74.0,
@@ -65,12 +67,14 @@ class _RegisterPageState extends State<RegisterPage> {
               _dateOfBirth(context),
               _gender(),
               MyTextField(
+                isNumber: false,
                 label: 'Password',
                 controller: txtPassword,
                 marginTop: 16.0,
                 obscureText: true,
               ),
               MyTextField(
+                isNumber: false,
                 label: 'Confirm Password',
                 controller: txtConfirmPassword,
                 marginTop: 16.0,
@@ -119,7 +123,7 @@ class _RegisterPageState extends State<RegisterPage> {
               // Clear fields after successful registration
               txtUsername.clear();
               txtPassword.clear();
-              selectedRadio = 0; // Reset radio button
+              selectedRadio = 0;
               txtConfirmPassword.clear();
               txtDateOfBirth.clear();
             }
@@ -131,6 +135,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   MyTextField _dateOfBirth(BuildContext context) {
     return MyTextField(
+      isNumber: false,
       label: 'Date of Birth',
       controller: txtDateOfBirth,
       marginTop: 16.0,
@@ -162,8 +167,8 @@ class _RegisterPageState extends State<RegisterPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Gender',
+          MyText(
+            text: 'Gender',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
