@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11plg2/components/button_component.dart';
-import 'package:latihan1_11plg2/components/text_component.dart';
 import 'package:latihan1_11plg2/components/text_field_component.dart';
 import 'package:latihan1_11plg2/controllers/calculator_controller.dart';
 import 'package:lottie/lottie.dart';
