@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:latihan1_11plg2/controllers/football_player_controller.dart';
+import 'package:latihan1_11plg2/model/player_model.dart';
+
+class EditFootballPlayerController extends GetxController {
+  final txtPlayerName = TextEditingController();
+  final txtPosition = TextEditingController();
+  final txtPlayerNumber = TextEditingController();
+
+  final footballPlayerController = Get.find<FootballPlayerController>();
+  final index = Get.arguments as int;
+
+  @override
+  void onInit() {
+    super.onInit();
+    fillIn();
+  }
+
+  void fillIn() {
+    txtPlayerName.text = footballPlayerController.playerList[index].nama;
+    txtPosition.text = footballPlayerController.playerList[index].posisi;
+    txtPlayerNumber.text =
+        footballPlayerController.playerList[index].playerNumber.toString();
+  }
+
+  void saveChanges() {
+    footballPlayerController.playerList[index] = Player(
+      nama: txtPlayerName.text,
+      posisi: txtPosition.text,
+      playerNumber: int.parse(txtPlayerNumber.text),
+      image: 'assets/images/logo.png',
+    );
+    Get.back();
+  }
+}

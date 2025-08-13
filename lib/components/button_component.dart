@@ -13,7 +13,7 @@ class CustomButton extends StatelessWidget {
     this.margin = 0.0,
     this.onPressed,
     this.backgroundColor,
-    this.foregroundColor, 
+    this.foregroundColor,
     this.shape,
   });
 
@@ -28,9 +28,9 @@ class CustomButton extends StatelessWidget {
           foregroundColor: foregroundColor,
           elevation: 5,
           padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
-          shape: shape ?? RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.0),
-          ),
+          shape:
+              shape ??
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
         ),
         child: Text(text, style: TextStyle(fontSize: 18)),
       ),
