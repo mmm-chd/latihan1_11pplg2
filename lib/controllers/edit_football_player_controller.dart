@@ -29,7 +29,7 @@ class EditFootballPlayerController extends GetxController {
       nama: txtPlayerName.text,
       posisi: txtPosition.text,
       playerNumber: int.parse(txtPlayerNumber.text),
-      image: 'assets/images/logo.png',
+      image: footballPlayerController.playerList[index].image,
     );
     Get.back();
   }
