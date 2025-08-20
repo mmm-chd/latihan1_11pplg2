@@ -1,11 +1,14 @@
 import 'package:get/route_manager.dart';
+import 'package:latihan1_11plg2/base_page.dart';
 import 'package:latihan1_11plg2/pages/calculator_page.dart';
 import 'package:latihan1_11plg2/pages/edit_football_player_page.dart';
 import 'package:latihan1_11plg2/pages/football_player_page.dart';
+import 'package:latihan1_11plg2/pages/profile_page.dart';
 import 'package:latihan1_11plg2/routes/app_routes.dart';
 
 class AppPages {
   static final appPages = [
+    GetPage(name: AppRoutes.basePage, page: () => BasePage()),
     GetPage(name: AppRoutes.calculatorPage, page: () => CalculatorPage()),
     GetPage(
       name: AppRoutes.footballPlayerPage,
@@ -15,5 +18,6 @@ class AppPages {
       name: AppRoutes.editFootballPlayer,
       page: () => EditFootballPlayerPage(),
     ),
+    GetPage(name: AppRoutes.profilePage, page: () => ProfilePage()),
   ];
 }

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:latihan1_11plg2/components/button_component.dart';
 import 'package:latihan1_11plg2/components/text_field_component.dart';
 import 'package:latihan1_11plg2/controllers/calculator_controller.dart';
-import 'package:latihan1_11plg2/routes/app_routes.dart';
 
 class CalculatorPage extends StatelessWidget {
   CalculatorPage({super.key});
@@ -20,11 +19,6 @@ class CalculatorPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Lottie.asset(
-              //   'assets/motion/calculator.json',
-              //   width: 200,
-              //   height: 200,
-              // ),
               MyTextField(
                 label: 'Input Angka 1',
                 controller: controller.txtAngka1,
@@ -102,19 +96,19 @@ class CalculatorPage extends StatelessWidget {
                   );
                 }),
               ),
-              Container(
-                margin: EdgeInsets.only(top: 20.0),
-                width: double.infinity,
-                child: CustomButton(
-                  text: 'Football Pages',
-                  onPressed: () {
-                    Get.toNamed(AppRoutes.footballPlayerPage);
-                  },
-                  margin: 20.0,
-                  backgroundColor: Colors.red,
-                  foregroundColor: Colors.white,
-                ),
-              ),
+              // Container(
+              //   margin: EdgeInsets.only(top: 20.0),
+              //   width: double.infinity,
+              //   child: CustomButton(
+              //     text: 'Football Pages',
+              //     onPressed: () {
+              //       Get.toNamed(AppRoutes.footballPlayerPage);
+              //     },
+              //     margin: 20.0,
+              //     backgroundColor: Colors.red,
+              //     foregroundColor: Colors.white,
+              //   ),
+              // ),
             ],
           ),
         ),
