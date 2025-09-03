@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_instance/get_instance.dart';
 import 'package:get/state_manager.dart';
-import 'package:latihan1_11plg2/base_controller.dart';
+import 'package:latihan1_11plg2/base/base_controller.dart';
 
 class BottomNav extends StatelessWidget {
-  const BottomNav({super.key});
+  BottomNav({super.key});
+
+  final BaseController baseController = Get.put(BaseController());
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +18,8 @@ class BottomNav extends StatelessWidget {
           TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
         elevation: 1,
-        selectedIndex: BaseController.to.currentIndex.value,
-        onDestinationSelected: (value) => BaseController.to.changeIndex(value),
+        selectedIndex: baseController.currentIndex.value,
+        onDestinationSelected: (value) => baseController.changeIndex(value),
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.calculate),
@@ -26,10 +29,7 @@ class BottomNav extends StatelessWidget {
             icon: Icon(Icons.sports_soccer),
             label: 'Football',
           ),
-          NavigationDestination(
-            icon: Icon(Icons.person), 
-            label: 'My Profile'
-          ),
+          NavigationDestination(icon: Icon(Icons.person), label: 'My Profile'),
         ],
       ),
     );

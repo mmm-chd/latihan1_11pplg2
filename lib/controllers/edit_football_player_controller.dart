@@ -4,16 +4,22 @@ import 'package:latihan1_11plg2/controllers/football_player_controller.dart';
 import 'package:latihan1_11plg2/model/player_model.dart';
 
 class EditFootballPlayerController extends GetxController {
+  // final index = Get.arguments as int;
+  // final footballPlayerController = Get.find<FootballPlayerController>();
+  
+  late int index;
+  late FootballPlayerController footballPlayerController;
+
   final txtPlayerName = TextEditingController();
   final txtPosition = TextEditingController();
   final txtPlayerNumber = TextEditingController();
 
-  final footballPlayerController = Get.find<FootballPlayerController>();
-  final index = Get.arguments as int;
 
   @override
   void onInit() {
     super.onInit();
+    index = Get.arguments as int;
+    footballPlayerController = Get.find<FootballPlayerController>();
     fillIn();
   }
 

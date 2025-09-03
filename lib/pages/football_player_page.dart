@@ -26,7 +26,7 @@ class FootballPlayerPage extends StatelessWidget {
             itemBuilder: (context, index) {
               return Container(
                 margin: EdgeInsets.only(top: 10, bottom: 10),
-                child: GestureDetector(
+                child: InkWell(
                   onTap: () {
                     Get.toNamed(AppRoutes.editFootballPlayer, arguments: index);
                   },
