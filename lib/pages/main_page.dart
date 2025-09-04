@@ -6,7 +6,7 @@ import 'package:latihan1_11plg2/controllers/main_controller.dart';
 class MainPage extends StatelessWidget {
   MainPage({super.key});
 
-  MainController mainController = Get.put(MainController());
+  final MainController mainController = Get.put(MainController());
 
   @override
   Widget build(BuildContext context) {

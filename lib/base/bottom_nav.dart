@@ -6,7 +6,7 @@ import 'package:latihan1_11plg2/base/base_controller.dart';
 class BottomNav extends StatelessWidget {
   BottomNav({super.key});
 
-  final BaseController baseController = Get.put(BaseController());
+  final BaseController baseController = Get.find<BaseController>();
 
   @override
   Widget build(BuildContext context) {

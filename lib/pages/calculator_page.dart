@@ -7,7 +7,8 @@ import 'package:latihan1_11plg2/controllers/calculator_controller.dart';
 class CalculatorPage extends StatelessWidget {
   CalculatorPage({super.key});
 
-  final CalculatorController controller = Get.put(CalculatorController());
+  // final CalculatorController controller = Get.put(CalculatorController());
+  final CalculatorController controller = Get.find<CalculatorController>();
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,9 @@ import 'package:latihan1_11plg2/controllers/profile_controller.dart';
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});
 
-  final ProfileController profileController = Get.put(ProfileController());
+  // final ProfileController profileController = Get.put(ProfileController());
+  final ProfileController profileController =
+      Get.find<ProfileController>(); // Using binding
 
   @override
   Widget build(BuildContext context) {

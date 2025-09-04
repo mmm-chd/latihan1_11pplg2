@@ -5,7 +5,7 @@ import 'package:latihan1_11plg2/base_side/base_side_bar_controller.dart';
 class BaseSideBar extends StatelessWidget {
   BaseSideBar({super.key});
 
-  BaseSideBarController baseSideBarController = Get.put(
+  final BaseSideBarController baseSideBarController = Get.put(
     BaseSideBarController(),
   );
 

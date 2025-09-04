@@ -27,7 +27,7 @@ class EditFootballPlayerController extends GetxController {
     txtPlayerName.text = footballPlayerController.playerList[index].nama;
     txtPosition.text = footballPlayerController.playerList[index].posisi;
     txtPlayerNumber.text =
-        footballPlayerController.playerList[index].playerNumber.toString();
+    footballPlayerController.playerList[index].playerNumber.toString();
   }
 
   void saveChanges() {

@@ -10,9 +10,12 @@ import 'package:latihan1_11plg2/routes/app_routes.dart';
 class FootballPlayerPage extends StatelessWidget {
   FootballPlayerPage({super.key});
 
-  final FootballPlayerController footballPlayerController = Get.put(
-    FootballPlayerController(),
-  );
+  // final FootballPlayerController footballPlayerController = Get.put(
+  //   FootballPlayerController(),
+  // );
+
+  final FootballPlayerController footballPlayerController =
+      Get.find<FootballPlayerController>(); // Using binding
 
   @override
   Widget build(BuildContext context) {
