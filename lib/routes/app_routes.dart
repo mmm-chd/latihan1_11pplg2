@@ -6,4 +6,7 @@ class AppRoutes {
   static const profilePage = "/profilePage";
   static const mainPage = "/mainPage";
   static const baseSideBar = "/baseSideBar";
+  static const loginPage = "/loginPage";
+  static const splashScreenPage = "/splashScreenPage";
+  static const contactPage = "/contactPage";
 }

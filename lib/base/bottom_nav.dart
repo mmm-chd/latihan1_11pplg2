@@ -12,7 +12,7 @@ class BottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => NavigationBar(
-        indicatorColor: Colors.white,
+        indicatorColor: Colors.transparent,
         backgroundColor: Colors.lightBlue,
         labelTextStyle: WidgetStateProperty.all(
           TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
