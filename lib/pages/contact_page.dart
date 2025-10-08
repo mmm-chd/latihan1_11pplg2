@@ -45,11 +45,11 @@ class ContactPage extends StatelessWidget {
                   margin: EdgeInsets.only(top: 20.0),
                   child: Obx(
                     () => ListView.builder(
-                      itemCount: contactController.names.length,
+                      itemCount: contactController.dataOr.length,
                       itemBuilder: (context, index) {
                         return Dismissible(
                           key: Key(
-                            contactController.names[index]['id'].toString(),
+                            contactController.dataOr[index]['id'].toString(),
                           ),
                           onDismissed: (direction) async {
                             await contactController.deleteName(index);
@@ -82,7 +82,7 @@ class ContactPage extends StatelessWidget {
                                           onPressed: () async {
                                             await contactController.updateName(
                                               contactController
-                                                      .names[index]['id']
+                                                      .dataOr[index]['id']
                                                   as int,
                                             );
                                             Navigator.of(context).pop();
@@ -105,7 +105,7 @@ class ContactPage extends StatelessWidget {
                                     Icon(Icons.person),
                                     SizedBox(width: 10.0),
                                     Text(
-                                      contactController.names[index]['name']
+                                      contactController.dataOr  [index]['name']
                                           .toString(),
                                       style: TextStyle(fontSize: 18.0),
                                     ),

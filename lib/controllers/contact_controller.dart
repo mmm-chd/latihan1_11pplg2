@@ -5,7 +5,7 @@ import 'package:latihan1_11plg2/database/db_helper.dart';
 class ContactController extends GetxController {
   TextEditingController nameController = TextEditingController();
   TextEditingController dialogController = TextEditingController();
-  final names = <Map<String, dynamic>>[].obs;
+  final dataOr = <Map<String, dynamic>>[].obs;
   final _dbHelper = DbHelper();
 
   @override
@@ -16,7 +16,7 @@ class ContactController extends GetxController {
 
   Future<void> fetchNames() async {
     final data = await _dbHelper.getNames();
-    names.assignAll(data);
+    dataOr.assignAll(data);
   }
 
   Future<void> addName() async {
@@ -28,8 +28,8 @@ class ContactController extends GetxController {
   }
 
   void fillingDialog(int index) {
-    if (index < 0 || index >= names.length) return;
-    final contact = names[index];
+    if (index < 0 || index >= dataOr.length) return;
+    final contact = dataOr[index];
     dialogController.text = contact['name'] as String;
   }
 
@@ -42,9 +42,9 @@ class ContactController extends GetxController {
   }
 
   Future<void> deleteName(int index) async {
-    if (index < 0 || index >= names.length) return;
+    if (index < 0 || index >= dataOr.length) return;
 
-    final contact = names[index];
+    final contact = dataOr[index];
     final dbId = contact['id'] as int;
     final contactName = contact['name'] as String;
 

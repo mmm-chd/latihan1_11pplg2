@@ -9,4 +9,5 @@ class AppRoutes {
   static const loginPage = "/loginPage";
   static const splashScreenPage = "/splashScreenPage";
   static const contactPage = "/contactPage";
+  static const examplePage = "/examplePage";
 }
