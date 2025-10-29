@@ -11,11 +11,11 @@ class SplashScreenController extends GetxController {
 
   _checkLoginStatus() async {
     final prefs = await SharedPreferences.getInstance();
-    String? username = prefs.getString('username');
-    String? password = prefs.getString('password');
+    String? token = prefs.getString('token');
+    // String? password = prefs.getString('password');
 
     await Future.delayed(Duration(seconds: 2));
-    if (username != null && password != null) {
+    if (token != null) {
       Get.offAllNamed(AppRoutes.basePage);
     } else {
       Get.offAllNamed(AppRoutes.loginPage);

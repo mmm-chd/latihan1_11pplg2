@@ -21,6 +21,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: margin ?? 0.0),
+      width: double.infinity,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(

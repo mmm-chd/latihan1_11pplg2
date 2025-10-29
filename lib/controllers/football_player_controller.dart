@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11plg2/model/player_model.dart';
 
 class FootballPlayerController extends GetxController {
+  var isMobile = true.obs;
+
   var playerList =
       <Player>[
         Player(
@@ -35,4 +38,8 @@ class FootballPlayerController extends GetxController {
           image: 'assets/images/logo.png',
         ),
       ].obs;
+
+  void updateLayout(BoxConstraints constraints) {
+    isMobile.value = constraints.maxWidth < 640;
+  }
 }

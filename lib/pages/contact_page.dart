@@ -105,7 +105,7 @@ class ContactPage extends StatelessWidget {
                                     Icon(Icons.person),
                                     SizedBox(width: 10.0),
                                     Text(
-                                      contactController.dataOr  [index]['name']
+                                      contactController.dataOr[index]['name']
                                           .toString(),
                                       style: TextStyle(fontSize: 18.0),
                                     ),

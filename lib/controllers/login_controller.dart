@@ -1,37 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'package:latihan1_11plg2/model/login_model.dart';
 import 'package:latihan1_11plg2/routes/app_routes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPageController extends GetxController {
-  final TextEditingController usernameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final inpUsername = TextEditingController();
+  final inpPassword = TextEditingController();
 
-  login() async {
-    String username = usernameController.text.toString();
-    String password = passwordController.text.toString();
+  final isLoading = false.obs;
 
-    if (username == 'admin' && password == 'password') {
-      Get.snackbar(
-        'Login Successful',
-        'Welcome, $username!',
-        snackPosition: SnackPosition.BOTTOM,
-      );
+  static const String baseURL = 'mediadwi.com';
 
-      final prefs = await SharedPreferences.getInstance();
-      prefs.setString('username', username);
-      prefs.setString('password', password);
-      
-      Get.offAllNamed(AppRoutes.basePage);
+  Future<void> loginLogic() async {
+    final user = inpUsername.text.trim();
+    final pass = inpPassword.text.trim();
 
-    } else {
-      Get.snackbar(
-        'Login Failed',
-        'Invalid username or password',
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.red,
-        colorText: Colors.white,
-      );
+    if (user.isEmpty || pass.isEmpty) {
+      Get.snackbar('Error', 'Username dan password tidak boleh kosong');
+      return;
+    }
+
+    isLoading.value = true;
+    final url = Uri.https(baseURL, '/api/latihan/login');
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: {'username': user, 'password': pass},
+    );
+
+    try {
+      if (response.statusCode == 200) {
+        final loginData = loginModelFromJson(response.body);
+
+        Get.snackbar('LOGIN STATUS', loginData.message);
+
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('token', loginData.token.toString());
+
+        if (loginData.status) {
+          Get.offAllNamed(AppRoutes.basePage);
+        }
+      }
+    } catch (e) {
+      final loginData = loginModelFromJson(response.body);
+      Get.snackbar('LOGIN STATUS', loginData.message);
+    } finally {
+      isLoading.value = false;
     }
   }
 }
